@@ -57,6 +57,7 @@
    "name": "สีรุ้งมีกี่สีและเกิดจากอะไร? | นิทานวิทยาศาสตร์สำหรับเด็ก",
    "description": "รุ้งเกิดเมื่อแสงแดดส่องผ่านเม็ดฝน แล้วแยกออกเป็น 7 สี เรียนคำศัพท์ Rainbow, Sun, Rain ไปพร้อมกัน",
    "thumbnailUrl": [
+    "https://fanpuitales.com/videos/rainbow-poster.jpg",
     "https://fanpuitales.com/thumbs/rainbow.png"
    ],
    "uploadDate": "2026-11-20T08:00:00+07:00",
@@ -64,7 +65,8 @@
    "inLanguage": "th",
    "publisher": {
     "@id": "https://fanpuitales.com/#org"
-   }
+   },
+   "contentUrl": "https://fanpuitales.com/videos/rainbow.mp4"
   },
   {
    "@type": "VideoObject",
@@ -130,7 +132,7 @@
 }
 </script>
 <style>img{max-width:100%}[hidden]{display:none!important}body{margin:0}</style>
-<script>window.FANPUI_LINKS={"snow-th": {"youtube": "", "tiktok": ""}, "snow-en": {"youtube": "", "tiktok": ""}, "goat-1": {"youtube": "", "tiktok": ""}, "goat-2": {"youtube": "", "tiktok": ""}, "rainbow": {"youtube": "", "tiktok": ""}, "bear-bee": {"youtube": "", "tiktok": ""}};window.FANPUI_EMBED=true</script>
+<script>window.FANPUI_LINKS={"snow-th": {"youtube": "", "tiktok": ""}, "snow-en": {"youtube": "", "tiktok": ""}, "goat-1": {"youtube": "", "tiktok": ""}, "goat-2": {"youtube": "", "tiktok": ""}, "rainbow": {"youtube": "", "tiktok": "", "file": "videos/rainbow.mp4", "poster": "videos/rainbow-poster.jpg"}, "bear-bee": {"youtube": "", "tiktok": ""}};window.FANPUI_EMBED=true</script>
 </head>
 <body>
 <style>
@@ -252,7 +254,7 @@ dialog::backdrop{background:rgba(40,20,50,.55);backdrop-filter:blur(3px)}
 .slot small{color:var(--ink-soft)}
 .ytthumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .yt{position:relative;width:min(100%,calc(62vh * 9 / 16));aspect-ratio:9/16;margin:0 auto 8px;border-radius:14px;overflow:hidden;background:#000}
-.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt iframe,.yt video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:contain;background:#000}
 .lesson{background:var(--cream);border-radius:16px;padding:12px 16px}
 .lesson h4{margin:0 0 4px;font-family:var(--f-display);font-size:.95rem;color:var(--purple-deep)}
 .say{list-style:none;margin:0;padding:0;display:grid;gap:6px}
@@ -557,11 +559,11 @@ const ART={
 };
 
 const grid=document.getElementById("grid");
-STORIES.forEach(s=>{const l=LINKS[s.id]||{};s.youtube=l.youtube||"";s.tiktok=l.tiktok||"";s.yt=ytId(s.youtube)});
+STORIES.forEach(s=>{const l=LINKS[s.id]||{};s.youtube=l.youtube||"";s.tiktok=l.tiktok||"";s.yt=ytId(s.youtube);s.file=EMBED?(l.file||""):"";s.poster=EMBED?(l.poster||""):""});
 grid.innerHTML=STORIES.map(s=>`
 <article class="vcard" data-cat="${s.cat.join(" ")}">
   <button class="thumb" data-id="${s.id}" aria-label="เปิดนิทาน ${s.title}">
-    ${S(ART[s.art])}${s.yt&&EMBED?`<img class="ytthumb" src="https://i.ytimg.com/vi/${s.yt}/hqdefault.jpg" alt="ภาพปกคลิป ${s.title}" loading="lazy" onerror="this.remove()">`:""}
+    ${S(ART[s.art])}${s.poster?`<img class="ytthumb" src="${s.poster}" alt="ภาพปกคลิป ${s.title}" loading="lazy" onerror="this.remove()">`:s.yt&&EMBED?`<img class="ytthumb" src="https://i.ytimg.com/vi/${s.yt}/hqdefault.jpg" alt="ภาพปกคลิป ${s.title}" loading="lazy" onerror="this.remove()">`:""}
     <span class="badge">${s.lang}</span><span class="play" aria-hidden="true"></span><span class="dur">${s.dur}</span>
   </button>
   <div class="vbody">
@@ -591,6 +593,8 @@ grid.addEventListener("click",e=>{
   const links=[["YouTube",s.youtube],["TikTok",s.tiktok]].filter(l=>l[1]);
   document.getElementById("dlg-slot").innerHTML=(s.yt&&EMBED)
     ? `<div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/${s.yt}?autoplay=1&rel=0&playsinline=1" title="${s.title}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><a href="${s.youtube}" target="_blank" rel="noopener">เปิดดูใน YouTube</a>`
+    : s.file
+    ? `<div class="yt"><video src="${s.file}" ${s.poster?`poster="${s.poster}"`:""} controls autoplay playsinline preload="metadata" title="${s.title}"></video></div>`
     : links.length
     ? `<b>ดูคลิปเต็ม</b><div class="cta-row" style="justify-content:center;margin-top:8px">${links.map(([n,u])=>`<a class="btn btn-main" href="${u}" target="_blank" rel="noopener">ดูบน ${n}</a>`).join("")}</div>`
     : `<b>คลิปกำลังจะมาเร็วๆ นี้</b><small>ฝันปุยกำลังอัปโหลดคลิปนี้ขึ้น YouTube และ TikTok</small>`;
