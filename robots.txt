@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pluemrujipas.github.io/fanpui/sitemap.xml
+Sitemap: https://fanpuitales.com/sitemap.xml
