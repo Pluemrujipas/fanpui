@@ -131,12 +131,29 @@
     "@id": "https://fanpuitales.com/#org"
    },
    "contentUrl": "https://fanpuitales.com/videos/goat-2.mp4"
+  },
+  {
+   "@type": "VideoObject",
+   "@id": "https://fanpuitales.com/#video-bear-bee",
+   "name": "หมีกับผึ้ง | นิทานเสียงมีข้อคิด โดย ฝันปุย",
+   "description": "หมีน้อยใจร้อนเอาไม้ตีรังผึ้ง จนถูกผึ้งทั้งรังไล่ต่อย ข้อคิด: ความใจร้อนนำปัญหามาให้เราเสมอ",
+   "thumbnailUrl": [
+    "https://fanpuitales.com/videos/bear-bee-poster.jpg",
+    "https://fanpuitales.com/thumbs/bear-bee.png"
+   ],
+   "uploadDate": "2026-11-22T08:00:00+07:00",
+   "duration": "PT3M34S",
+   "inLanguage": "th",
+   "publisher": {
+    "@id": "https://fanpuitales.com/#org"
+   },
+   "contentUrl": "https://fanpuitales.com/videos/bear-bee.mp4"
   }
  ]
 }
 </script>
 <style>img{max-width:100%}[hidden]{display:none!important}body{margin:0}</style>
-<script>window.FANPUI_LINKS={"snow-th": {"youtube": "", "tiktok": ""}, "snow-en": {"youtube": "", "tiktok": ""}, "goat-1": {"youtube": "", "tiktok": "", "file": "videos/goat-1.mp4", "poster": "videos/goat-1-poster.jpg"}, "goat-2": {"youtube": "", "tiktok": "", "file": "videos/goat-2.mp4", "poster": "videos/goat-2-poster.jpg"}, "rainbow": {"youtube": "", "tiktok": "", "file": "videos/rainbow.mp4", "poster": "videos/rainbow-poster.jpg"}, "bear-bee": {"youtube": "", "tiktok": ""}};window.FANPUI_EMBED=true</script>
+<script>window.FANPUI_LINKS={"snow-th": {"youtube": "", "tiktok": ""}, "snow-en": {"youtube": "", "tiktok": ""}, "goat-1": {"youtube": "", "tiktok": "", "file": "videos/goat-1.mp4", "poster": "videos/goat-1-poster.jpg"}, "goat-2": {"youtube": "", "tiktok": "", "file": "videos/goat-2.mp4", "poster": "videos/goat-2-poster.jpg"}, "rainbow": {"youtube": "", "tiktok": "", "file": "videos/rainbow.mp4", "poster": "videos/rainbow-poster.jpg"}, "bear-bee": {"youtube": "", "tiktok": "", "file": "videos/bear-bee.mp4", "poster": "videos/bear-bee-poster.jpg", "wide": true}};window.FANPUI_EMBED=true</script>
 </head>
 <body>
 <style>
@@ -258,6 +275,7 @@ dialog::backdrop{background:rgba(40,20,50,.55);backdrop-filter:blur(3px)}
 .slot small{color:var(--ink-soft)}
 .ytthumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .yt{position:relative;width:min(100%,calc(62vh * 9 / 16));aspect-ratio:9/16;margin:0 auto 8px;border-radius:14px;overflow:hidden;background:#000}
+.yt.wide{width:100%;aspect-ratio:16/9}
 .yt iframe,.yt video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:contain;background:#000}
 .lesson{background:var(--cream);border-radius:16px;padding:12px 16px}
 .lesson h4{margin:0 0 4px;font-family:var(--f-display);font-size:.95rem;color:var(--purple-deep)}
@@ -546,9 +564,9 @@ const STORIES=[
  {id:"rainbow",title:"สีรุ้งมีกี่สีและเกิดจากอะไร?",en:"How is a rainbow made?",lang:"ไทย + คำศัพท์อังกฤษ",dur:"1:05",cat:["science","english"],art:"rainbow",
   desc:"รุ้งเกิดเมื่อแสงแดดส่องผ่านเม็ดฝน แสงสีขาวจะแยกออกเป็น 7 สี แดง แสด เหลือง เขียว ฟ้า คราม ม่วง",
   moral:"จะเห็นรุ้งได้ ดวงอาทิตย์ต้องอยู่ข้างหลังเรา และห้ามมองดวงอาทิตย์ตรงๆ นะ",say:[["Rainbow","รุ้ง"],["Sun","ดวงอาทิตย์"],["Rain","ฝน"]]},
- {id:"bear-bee",title:"หมีกับผึ้ง (นิทานเสียง)",en:"The Bear and the Bees",lang:"นิทานเสียง",dur:"เร็วๆ นี้",cat:["moral"],art:"bee",
-  desc:"นิทานเสียงจากฝันปุย ฟังก่อนนอนได้แม้ปิดหน้าจอ",
-  moral:"รายละเอียดเรื่องจะเพิ่มเมื่อเผยแพร่",say:[["Bear","หมี"],["Bee","ผึ้ง"]]}
+ {id:"bear-bee",title:"หมีกับผึ้ง (นิทานเสียง)",en:"The Bear and the Bees",lang:"นิทานเสียง",dur:"3:34",cat:["moral"],art:"bee",
+  desc:"หมีน้อยรำคาญผึ้งที่บินวนไปมา เลยเอาไม้ไปตีรังผึ้ง ผึ้งทั้งรังบินออกมาไล่ต่อย หมีต้องกลับบ้านไปให้คุณแม่ทายาให้",
+  moral:"ความใจร้อนนำปัญหามาให้เราเสมอ ใจเย็นๆ แล้วคิดก่อนทำนะ",say:[["Bear","หมี"],["Bee","ผึ้ง"],["Honey","น้ำผึ้ง"],["Calm down","ใจเย็นๆ"]]}
 ];
 
 const S=(o)=>`<svg viewBox="0 0 270 360" role="img" aria-label="${o.alt}">${o.svg}</svg>`;
@@ -563,7 +581,7 @@ const ART={
 };
 
 const grid=document.getElementById("grid");
-STORIES.forEach(s=>{const l=LINKS[s.id]||{};s.youtube=l.youtube||"";s.tiktok=l.tiktok||"";s.yt=ytId(s.youtube);s.file=EMBED?(l.file||""):"";s.poster=EMBED?(l.poster||""):""});
+STORIES.forEach(s=>{const l=LINKS[s.id]||{};s.youtube=l.youtube||"";s.tiktok=l.tiktok||"";s.yt=ytId(s.youtube);s.file=EMBED?(l.file||""):"";s.audio=EMBED?(l.audio||""):"";s.wide=!!l.wide;s.poster=EMBED?(l.poster||""):""});
 grid.innerHTML=STORIES.map(s=>`
 <article class="vcard" data-cat="${s.cat.join(" ")}">
   <button class="thumb" data-id="${s.id}" aria-label="เปิดนิทาน ${s.title}">
@@ -597,8 +615,10 @@ grid.addEventListener("click",e=>{
   const links=[["YouTube",s.youtube],["TikTok",s.tiktok]].filter(l=>l[1]);
   document.getElementById("dlg-slot").innerHTML=(s.yt&&EMBED)
     ? `<div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/${s.yt}?autoplay=1&rel=0&playsinline=1" title="${s.title}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><a href="${s.youtube}" target="_blank" rel="noopener">เปิดดูใน YouTube</a>`
+    : s.audio
+    ? `<div style="max-width:260px;margin:0 auto 10px;border-radius:16px;overflow:hidden">${S(ART[s.art])}</div><audio src="${s.audio}" controls autoplay preload="none" style="width:100%"></audio>`
     : s.file
-    ? `<div class="yt"><video src="${s.file}" ${s.poster?`poster="${s.poster}"`:""} controls autoplay playsinline preload="metadata" title="${s.title}"></video></div>`
+    ? `<div class="yt${s.wide?" wide":""}"><video src="${s.file}" ${s.poster?`poster="${s.poster}"`:""} controls autoplay playsinline preload="metadata" title="${s.title}"></video></div>`
     : links.length
     ? `<b>ดูคลิปเต็ม</b><div class="cta-row" style="justify-content:center;margin-top:8px">${links.map(([n,u])=>`<a class="btn btn-main" href="${u}" target="_blank" rel="noopener">ดูบน ${n}</a>`).join("")}</div>`
     : `<b>คลิปกำลังจะมาเร็วๆ นี้</b><small>ฝันปุยกำลังอัปโหลดคลิปนี้ขึ้น YouTube และ TikTok</small>`;
